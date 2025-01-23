@@ -49,7 +49,7 @@ ping_test_host() {
 }
 
 get_ping_command() {
-	if [ -x "/usr/bin/ping" ] && /usr/bin/ping -${FAMILY#ipv} -c1 -q $(ping_test_host) &>/dev/null; then
+	if [ -x "/usr/bin/ping" ] && /usr/bin/ping -${FAMILY#ipv} -W1 -c1 -q $(ping_test_host) &>/dev/null; then
 		# -4 option added in iputils c3e68ac6 so need to check if we can use it
 		# or if we must use ping and ping6
 		echo "/usr/bin/ping -${FAMILY#ipv}"
